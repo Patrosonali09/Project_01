@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Detail</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  .doctor-detail-container{
+    background-image: linear-gradient(
+        to right,
+      rgb(173, 216, 230),
+        rgba(18,172,142, 0.7)
+    ),
+    url("assets/chd.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .doctor-detail-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .doctor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+  }
+
+  .doctor-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+  .doctor-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #333;
+  }
+
+  .doctor-header p {
+    font-size: 1.2rem;
+    color: #777;
+  }
+
+  .doctor-info {
+    margin-bottom: 30px;
+  }
+
+  .doctor-info h2 {
+    font-size: 1.6rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  .doctor-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .contact-info {
+    margin-bottom: 30px;
+  }
+
+  .contact-info h2 {
+    font-size: 1.6rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+
+  .contact-info i {
+    color: #007bff;
+    margin-right: 10px;
+  }
+
+  .appointment-btn-container,
+  .view-patient-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .appointment-btn,
+  .view-patient-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0 10px;
+  }
+
+  .appointment-btn:hover,
+  .view-patient-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  .appointment-btn:active,
+  .view-patient-btn:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .doctor-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .doctor-header img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
+    }
+
+    .doctor-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .doctor-header p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+  </style>
+</head>
+<body>
+
+  <div class="doctor-detail-container">
+    <div class="doctor-header">
+      <img src="assets/d5.jpg" alt="Doctor Image"> 
+      <div>
+        <h1>Dr. Emily Brown</h1>
+        <p>Dibetologist</p>
+      </div>
+    </div>
+
+    <div class="doctor-info">
+      <h2>About Dr. Emily Brown</h2>
+      <p>Hello! I'm Dr. Emily Brown, a specialist in diabetes management. I have over 10 years of experience helping patients manage and improve their condition through personalized care and a holistic approach to health. I am passionate about providing patients with the tools they need to lead healthier lives and manage their diabetes effectively.</p>
+    </div>
+
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><i class="fas fa-phone-alt"></i> Phone: (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> Email: emily.brown@example.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Location: 123 Health Street, Cityville</p>
+    </div>
+
+    <!-- <div class="appointment-btn-container">
+      <a href="appointment-form.html" class="appointment-btn">Schedule Appointment</a>
+    </div> -->
+
+    <div class="view-patient-btn-container">
+      <a href="index3.html" class="view-patient-btn" onclick="storePatientData()">View Patient Details</a>
+    </div>
+  </div>
+
+  <script>
+  
+    function storePatientData() {
+    
+      const patientData = {
+        name: 'John Doe',
+        age: 45,
+        condition: 'Type 2 Diabetes',
+        lastVisit: '01/15/2025',
+        treatmentPlan: 'Medication adjustment and lifestyle changes'
+      };
+      
+      
+      localStorage.setItem('patientData', JSON.stringify(patientData));
+    }
+  </script>
+
+</body>
+</html>

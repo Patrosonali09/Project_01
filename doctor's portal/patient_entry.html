@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Detail Entry</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .patient-entry-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="patient-entry-container">
+    <h2>Enter Patient Details</h2>
+    <div class="input-group">
+      <label for="patientName">Patient Name</label>
+      <input type="text" id="patientName" placeholder="Enter Patient's Name">
+    </div>
+    <div class="input-group">
+      <label for="patientAge">Age</label>
+      <input type="number" id="patientAge" placeholder="Enter Patient's Age">
+    </div>
+    <div class="input-group">
+      <label for="patientCondition">Condition</label>
+      <input type="text" id="patientCondition" placeholder="Enter Patient's Condition">
+    </div>
+    <button class="submit-btn" onclick="submitPatientDetails()">Submit</button>
+  </div>
+
+  <script>
+    function submitPatientDetails() {
+      const patientName = document.getElementById('patientName').value;
+      const patientAge = document.getElementById('patientAge').value;
+      const patientCondition = document.getElementById('patientCondition').value;
+
+      if (patientName && patientAge && patientCondition) {
+        const patientData = {
+          name: patientName,
+          age: patientAge,
+          condition: patientCondition
+        };
+
+        
+        localStorage.setItem('patientData', JSON.stringify(patientData));
+        alert('Patient details saved successfully!');
+        window.location.href = 'doctor-detail.html'; 
+      } else {
+        alert('Please fill out all fields.');
+      }
+    }
+  </script>
+</body>
+</html>

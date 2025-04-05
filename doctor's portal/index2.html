@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+ 
+  .patient-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgb(173, 216, 230);
+    background-color: rgba(18,172,142,0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  body{
+    background-image: linear-gradient(
+        to right,
+      rgb(173, 216, 230),
+        rgba(18,172,142, 0.7)
+    ),
+  }
+ 
+
+  .patient-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .patient-header h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+
+  .patient-info {
+    margin-bottom: 30px;
+  }
+
+  .patient-info h2 {
+    font-size: 1.6rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  .patient-info p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .patient-info p strong {
+    color: #333;
+    font-weight: bold;
+  }
+
+  .back-btn-container {
+    text-align: center;
+  }
+
+  .back-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  .back-btn:active {
+    transform: translateY(0);
+  }
+
+
+  @media (max-width: 768px) {
+    .patient-detail-container {
+      padding: 20px;
+      width: 100%;
+    }
+
+    .patient-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .patient-info h2 {
+      font-size: 1.4rem;
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+  </style>
+
+  <script src="script2.js"></script>
+</head>
+<body>
+
+  <div class="patient-detail-container">
+    <div class="patient-header">
+      <h1>Patient Details</h1>
+    </div>
+
+    <div class="patient-info" id="patient-info">
+      
+    </div>
+
+    <div class="back-btn-container">
+      <a href="index2.html" class="back-btn">Back to Doctor's Profile</a>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const patientData = JSON.parse(localStorage.getItem('patientData'));
+
+      if (patientData) {
+       
+        const patientInfoContainer = document.getElementById('patient-info');
+
+        const patientDetailsHTML = `
+          <h2>Patient Name: ${patientData.name}</h2>
+          <p><strong>Age:</strong> ${patientData.age}</p>
+          <p><strong>Condition:</strong> ${patientData.condition}</p>
+          <p><strong>Last Visit:</strong> ${patientData.lastVisit}</p>
+          <p><strong>Treatment Plan:</strong> ${patientData.treatmentPlan}</p>
+        `;
+
+        patientInfoContainer.innerHTML = patientDetailsHTML;
+      } else {
+        
+        document.getElementById('patient-info').innerHTML = '<p>No patient data found.</p>';
+      }
+    }
+  </script>
+
+</body>
+</html>
